@@ -12,3 +12,7 @@ test_output/
 # Virtual environments
 .venv
 .env
+
+# Test output
+test_output
+Test/output/*
