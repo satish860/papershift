@@ -75,13 +75,15 @@ def main():
     
     # Base directory for test files
     test_dir = os.path.dirname(os.path.abspath(__file__))
+    # Data directory for PDF files
+    data_dir = os.path.join(test_dir, "data")
     
     # Results
     results = {}
     
     # Run tests for each PDF file
     for pdf_file in pdf_files:
-        pdf_path = os.path.join(test_dir, pdf_file)
+        pdf_path = os.path.join(data_dir, pdf_file)
         
         # Create output directory based on PDF filename
         output_dir = os.path.join(test_dir, "output", os.path.splitext(pdf_file)[0])

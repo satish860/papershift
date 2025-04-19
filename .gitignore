@@ -16,3 +16,4 @@ test_output/
 # Test output
 test_output
 Test/output/*
+Test/data/*

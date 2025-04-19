@@ -77,8 +77,21 @@ def main():
         "--verbose", "-v", action="store_true",
         help="Print progress information"
     )
+    parser.add_argument(
+        "--data-dir", "-d",
+        default="data",
+        help="Directory containing PDF files (default: data, relative to Test directory)"
+    )
     
     args = parser.parse_args()
+    
+    # If pdf_path is just a filename (not a full path), look for it in the data directory
+    if not os.path.isabs(args.pdf_path) and not os.path.exists(args.pdf_path):
+        test_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(test_dir, args.data_dir)
+        potential_path = os.path.join(data_dir, args.pdf_path)
+        if os.path.exists(potential_path):
+            args.pdf_path = potential_path
     
     success = run_integration_test(
         pdf_path=args.pdf_path,
