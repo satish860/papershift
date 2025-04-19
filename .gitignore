@@ -17,3 +17,4 @@ test_output/
 test_output
 Test/output/*
 Test/data/*
+output_markdown/*
